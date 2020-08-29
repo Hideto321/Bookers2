@@ -1,0 +1,42 @@
+<% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+<% end %>
+
+      <%= render 'users/list', user: @user ,book: @booknew %>
+
+      <div class="col-xs-9">
+        <h2>Book detail</h2>
+          <table class="table table-hover table-inverse">
+            <thead>
+              <tr> 
+                <th>Book detail</th>
+                <th></th>
+                <th></th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+
+            <tbody>
+                <tr> 
+                  <td>
+                    <%= link_to user_path(@user.id) do %>
+                      <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format:'jpeg', class: "#", fallback: "no_image.jpg", size:'60x60' %>
+                      <%= @user.name%>
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= link_to @book.title, book_path(@book) %>
+                  </td>
+                  <td>
+                    <%= @book.body %>
+                  </td>
+								<% if current_user.id == @user.id %>
+									<td><%= link_to 'Edit', edit_book_path(@book.id), {class: "btn btn-success"} %></td>
+									<td class="btn btn-danger" style="margin-top: 10px;"><%= link_to 'Destroy', book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか？" %></td>
+								<% end %>
+            </tbody>
+          </table>
+          
+      </div>

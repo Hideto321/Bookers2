@@ -1,0 +1,758 @@
+
+Bookモデルのテスト
+  バリデーションのテスト
+    titleカラム
+      空欄でないこと
+    bodyカラム
+      空欄でないこと
+      200文字以下であること
+  アソシエーションのテスト
+    Userモデルとの関係
+      N:1となっている
+
+Userモデルのテスト
+  バリデーションのテスト
+    nameカラム
+      空欄でないこと
+      2文字以上であること
+      20文字以下であること
+    introductionカラム
+      50文字以下であること
+  アソシエーションのテスト
+    Bookモデルとの関係
+      1:Nとなっている
+
+投稿のテスト
+  サイドバーのテスト
+    表示の確認
+      New bookと表示される
+      titleフォームが表示される
+      opinionフォームが表示される
+      Create Bookボタンが表示される
+      投稿に成功する
+      投稿に失敗する
+  編集のテスト
+    自分の投稿の編集画面への遷移
+      遷移できる
+    他人の投稿の編集画面への遷移
+      遷移できない (FAILED - 1)
+    表示の確認
+      Editing Bookと表示される
+      title編集フォームが表示される
+      opinion編集フォームが表示される
+      Showリンクが表示される (FAILED - 2)
+      Backリンクが表示される
+    フォームの確認
+      編集に成功する
+      編集に失敗する
+  一覧画面のテスト
+    表示の確認
+      Booksと表示される
+      自分と他人の画像のリンク先が正しい (FAILED - 3)
+      自分と他人のタイトルのリンク先が正しい
+      自分と他人のオピニオンが表示される
+  詳細画面のテスト
+    自分・他人共通の投稿詳細画面の表示を確認
+      Book detailと表示される
+      ユーザー画像・名前のリンク先が正しい (FAILED - 4)
+      投稿のtitleが表示される
+      投稿のopinionが表示される
+    自分の投稿詳細画面の表示を確認
+      投稿の編集リンクが表示される (FAILED - 5)
+      投稿の削除リンクが表示される
+    他人の投稿詳細画面の表示を確認
+      投稿の編集リンクが表示されない
+      投稿の削除リンクが表示されない (FAILED - 6)
+
+bootstrapのテスト
+  グリッドシステムのテスト
+    ユーザー関連画面
+      一覧画面 (FAILED - 7)
+      詳細画面
+    投稿関連画面
+      一覧画面
+      詳細画面
+
+ヘッダーのテスト
+  ログインしていない場合
+    ヘッダーの表示を確認
+      タイトルが表示される
+      Homeリンクが表示される (FAILED - 8)
+      Aboutリンクが表示される (FAILED - 9)
+      Sign upリンクが表示される (FAILED - 10)
+      loginリンクが表示される (FAILED - 11)
+    ヘッダーのリンクを確認
+      Home画面に遷移する (FAILED - 12)
+      About画面に遷移する (FAILED - 13)
+      新規登録画面に遷移する (FAILED - 14)
+      ログイン画面に遷移する
+  ログインしている場合
+    ヘッダーの表示を確認
+      タイトルが表示される
+      Homeリンクが表示される (FAILED - 15)
+      Usersリンクが表示される (FAILED - 16)
+      Booksリンクが表示される (FAILED - 17)
+      logoutリンクが表示される (FAILED - 18)
+    ヘッダーのリンクを確認
+      Home画面に遷移する (FAILED - 19)
+      Users画面に遷移する (FAILED - 20)
+      Books画面に遷移する (FAILED - 21)
+      logoutする (FAILED - 22)
+
+ユーザー権限のテスト
+  ログインしていない場合
+    投稿関連のURLにアクセス
+      一覧画面に遷移できない (FAILED - 23)
+      編集画面に遷移できない (FAILED - 24)
+      詳細画面に遷移できない (FAILED - 25)
+  ログインしていない場合にユーザー関連のURLにアクセス
+    ユーザー関連のURLにアクセス
+      一覧画面に遷移できない (FAILED - 26)
+      編集画面に遷移できない (FAILED - 27)
+      詳細画面に遷移でない (FAILED - 28)
+
+トップページのテスト
+  ボディ部分のテスト
+    表示の確認
+      Log inリンクが表示される (FAILED - 29)
+      Sign Upリンクが表示される (FAILED - 30)
+    ログインしている場合の挙動を確認
+      Log inリンクをクリックしたらユーザー詳細画面へ遷移する
+      Sign Upリンクをクリックしたらユーザー詳細画面に遷移する (FAILED - 31)
+    ログインしていない場合の挙動を確認
+      Log inリンクをクリックしたらログイン画面へ遷移する (FAILED - 32)
+      Sign Upリンクをクリックしたら新規登録画面に遷移する (FAILED - 33)
+
+ユーザー認証のテスト
+  ユーザー新規登録
+    新規登録画面に遷移
+      新規登録に成功する (FAILED - 34)
+      新規登録に失敗する
+  ユーザーログイン
+    ログイン画面に遷移
+      ログインに成功する (FAILED - 35)
+      ログインに失敗する
+
+ユーザーのテスト
+  サイドバーのテスト
+    表示の確認
+      User infoと表示される
+      画像が表示される
+      名前が表示される
+      自己紹介が表示される
+      編集リンクが表示される
+  編集のテスト
+    自分の編集画面への遷移
+      遷移できる
+    他人の編集画面への遷移
+      遷移できない (FAILED - 36)
+    表示の確認
+      User infoと表示される
+      名前編集フォームに自分の名前が表示される
+      画像編集フォームが表示される
+      自己紹介編集フォームに自分の自己紹介が表示される
+      編集に成功する (FAILED - 37)
+      編集に失敗する
+  一覧画面のテスト
+    表示の確認
+      Usersと表示される (FAILED - 38)
+      自分と他の人の画像が表示される (FAILED - 39)
+      自分と他の人の名前が表示される (FAILED - 40)
+      showリンクが表示される (FAILED - 41)
+  詳細画面のテスト
+    表示の確認
+      Booksと表示される
+      投稿一覧のユーザーの画像のリンク先が正しい (FAILED - 42)
+      投稿一覧のtitleのリンク先が正しい (FAILED - 43)
+      投稿一覧にopinionが表示される
+
+Failures:
+
+  1) 投稿のテスト 編集のテスト 他人の投稿の編集画面への遷移 遷移できない
+     Failure/Error: expect(current_path).to eq('/books')
+
+       expected: "/books"
+            got: "/books/2/edit"
+
+       (compared using ==)
+
+
+
+     # ./spec/system/books_spec.rb:52:in `block (4 levels) in <top (required)>'
+
+  2) 投稿のテスト 編集のテスト 表示の確認 Showリンクが表示される
+     Failure/Error: expect(page).to have_link 'Show', href: book_path(book)
+       expected to find link "Show" with href "/books/1" but there were no matches
+
+
+
+     # ./spec/system/books_spec.rb:69:in `block (4 levels) in <top (required)>'
+
+  3) 投稿のテスト 一覧画面のテスト 表示の確認 自分と他人の画像のリンク先が正しい
+     Failure/Error: expect(page).to have_link '', href: user_path(book.user)
+       expected to find link "" with href "/users/2" but there were no matches
+
+
+
+     # ./spec/system/books_spec.rb:101:in `block (4 levels) in <top (required)>'
+
+  4) 投稿のテスト 詳細画面のテスト 自分・他人共通の投稿詳細画面の表示を確認 ユーザー画像・名前のリンク先が正しい
+     Failure/Error: expect(page).to have_link book.user.name, href: user_path(book.user)
+       expected to find link "qpqgm11dlm" with href "/users/2" but there were no matches
+
+
+
+     # ./spec/system/books_spec.rb:123:in `block (4 levels) in <top (required)>'
+
+  5) 投稿のテスト 詳細画面のテスト 自分の投稿詳細画面の表示を確認 投稿の編集リンクが表示される
+     Failure/Error: expect(page).to have_link 'Edit', href: edit_book_path(book)
+       expected to find link "Edit" with href "/books/1/edit" but there were no matches
+
+
+
+     # ./spec/system/books_spec.rb:137:in `block (4 levels) in <top (required)>'
+
+  6) 投稿のテスト 詳細画面のテスト 他人の投稿詳細画面の表示を確認 投稿の削除リンクが表示されない
+     Failure/Error: expect(page).to have_no_link 'Destroy', href: book_path(book2)
+       expected not to find visible link "Destroy" with href "/books/2", found 1 match: "Destroy"
+
+
+
+     # ./spec/system/books_spec.rb:151:in `block (4 levels) in <top (required)>'
+
+  7) bootstrapのテスト グリッドシステムのテスト ユーザー関連画面 一覧画面
+     Failure/Error: <% if @book.errors.any? %>
+
+     ActionView::Template::Error:
+       undefined method `errors' for nil:NilClass
+
+
+
+     # ./app/views/users/_list.html.erb:1:in `_app_views_users__list_html_erb__3560773076295359086_70423780'
+     # ./app/views/users/index.html.erb:2:in `_app_views_users_index_html_erb__2979786567696924804_96086040'
+     # ./spec/system/bootstrap_spec.rb:15:in `block (4 levels) in <top (required)>'
+     # ------------------
+     # --- Caused by: ---
+     # NoMethodError:
+     #   undefined method `errors' for nil:NilClass
+     #   ./app/views/users/_list.html.erb:1:in `_app_views_users__list_html_erb__3560773076295359086_70423780'
+
+  8) ヘッダーのテスト ログインしていない場合 ヘッダーの表示を確認 Homeリンクが表示される
+     Failure/Error: expect(home_link).to match(/home/i)
+
+       expected "\n          Users\n" to match /home/i
+       Diff:
+       @@ -1,2 +1,3 @@
+       -/home/i
+       +
+       +          Users
+
+
+
+     # ./spec/system/header_spec.rb:15:in `block (4 levels) in <top (required)>'
+
+  9) ヘッダーのテスト ログインしていない場合 ヘッダーの表示を確認 Aboutリンクが表示される
+     Failure/Error: expect(about_link).to match(/about/i)
+
+       expected "\n          Books\n" to match /about/i
+       Diff:
+       @@ -1,2 +1,3 @@
+       -/about/i
+       +
+       +          Books
+
+
+
+     # ./spec/system/header_spec.rb:20:in `block (4 levels) in <top (required)>'
+
+  10) ヘッダーのテスト ログインしていない場合 ヘッダーの表示を確認 Sign upリンクが表示される
+      Failure/Error: expect(signup_link).to match(/sign up/i)
+
+        expected " logout" to match /sign up/i
+        Diff:
+        @@ -1 +1 @@
+        -/sign up/i
+        +" logout"
+
+
+
+      # ./spec/system/header_spec.rb:25:in `block (4 levels) in <top (required)>'
+
+  11) ヘッダーのテスト ログインしていない場合 ヘッダーの表示を確認 loginリンクが表示される
+      Failure/Error: expect(login_link).to match(/login/i)
+
+        expected "Log in" to match /login/i
+        Diff:
+        @@ -1 +1 @@
+        -/login/i
+        +"Log in"
+
+
+
+      # ./spec/system/header_spec.rb:30:in `block (4 levels) in <top (required)>'
+
+  12) ヘッダーのテスト ログインしていない場合 ヘッダーのリンクを確認 Home画面に遷移する
+      Failure/Error: <% if @book.errors.any? %>
+
+      ActionView::Template::Error:
+        undefined method `errors' for nil:NilClass
+
+
+
+      # ./app/views/users/_list.html.erb:1:in `_app_views_users__list_html_erb__3560773076295359086_70423780'
+      # ./app/views/users/index.html.erb:2:in `_app_views_users_index_html_erb__2979786567696924804_96086040'
+      # ./spec/system/header_spec.rb:40:in `block (4 levels) in <top (required)>'
+      # ------------------
+      # --- Caused by: ---
+      # NoMethodError:
+      #   undefined method `errors' for nil:NilClass
+      #   ./app/views/users/_list.html.erb:1:in `_app_views_users__list_html_erb__3560773076295359086_70423780'
+
+  13) ヘッダーのテスト ログインしていない場合 ヘッダーのリンクを確認 About画面に遷移する
+      Failure/Error: <td><%= user.name %></td>
+
+      ActionView::Template::Error:
+        undefined method `name' for nil:NilClass
+
+
+
+      # ./app/views/users/_list.html.erb:25:in `_app_views_users__list_html_erb__3560773076295359086_70423780'
+      # ./app/views/books/index.html.erb:2:in `_app_views_books_index_html_erb___4370260815499693884_83511120'
+      # ./spec/system/header_spec.rb:46:in `block (4 levels) in <top (required)>'
+      # ------------------
+      # --- Caused by: ---
+      # NoMethodError:
+      #   undefined method `name' for nil:NilClass
+      #   ./app/views/users/_list.html.erb:25:in `_app_views_users__list_html_erb__3560773076295359086_70423780'
+
+  14) ヘッダーのテスト ログインしていない場合 ヘッダーのリンクを確認 新規登録画面に遷移する
+      Failure/Error: is_expected.to eq(new_user_registration_path)
+
+        expected: "/users/sign_up"
+             got: "/"
+
+        (compared using ==)
+
+
+
+      # ./spec/system/header_spec.rb:53:in `block (4 levels) in <top (required)>'
+
+  15) ヘッダーのテスト ログインしている場合 ヘッダーの表示を確認 Homeリンクが表示される
+      Failure/Error: expect(home_link).to match(/home/i)
+
+        expected "\n          Users\n" to match /home/i
+        Diff:
+        @@ -1,2 +1,3 @@
+        -/home/i
+        +
+        +          Users
+
+
+
+      # ./spec/system/header_spec.rb:79:in `block (4 levels) in <top (required)>'
+
+  16) ヘッダーのテスト ログインしている場合 ヘッダーの表示を確認 Usersリンクが表示される
+      Failure/Error: expect(users_link).to match(/users/i)
+
+        expected "\n          Books\n" to match /users/i
+        Diff:
+        @@ -1,2 +1,3 @@
+        -/users/i
+        +
+        +          Books
+
+
+
+      # ./spec/system/header_spec.rb:83:in `block (4 levels) in <top (required)>'
+
+  17) ヘッダーのテスト ログインしている場合 ヘッダーの表示を確認 Booksリンクが表示される
+      Failure/Error: expect(books_link).to match(/books/i)
+
+        expected " logout" to match /books/i
+        Diff:
+        @@ -1 +1 @@
+        -/books/i
+        +" logout"
+
+
+
+      # ./spec/system/header_spec.rb:87:in `block (4 levels) in <top (required)>'
+
+  18) ヘッダーのテスト ログインしている場合 ヘッダーの表示を確認 logoutリンクが表示される
+      Failure/Error: expect(logout_link).to match(/logout/i)
+
+        expected " " to match /logout/i
+        Diff:
+        @@ -1 +1 @@
+        -/logout/i
+        +" "
+
+
+
+      # ./spec/system/header_spec.rb:91:in `block (4 levels) in <top (required)>'
+
+  19) ヘッダーのテスト ログインしている場合 ヘッダーのリンクを確認 Home画面に遷移する
+      Failure/Error: <% if @book.errors.any? %>
+
+      ActionView::Template::Error:
+        undefined method `errors' for nil:NilClass
+
+
+
+      # ./app/views/users/_list.html.erb:1:in `_app_views_users__list_html_erb__3560773076295359086_70423780'
+      # ./app/views/users/index.html.erb:2:in `_app_views_users_index_html_erb__2979786567696924804_96086040'
+      # ./spec/system/header_spec.rb:100:in `block (4 levels) in <top (required)>'
+      # ------------------
+      # --- Caused by: ---
+      # NoMethodError:
+      #   undefined method `errors' for nil:NilClass
+      #   ./app/views/users/_list.html.erb:1:in `_app_views_users__list_html_erb__3560773076295359086_70423780'
+
+  20) ヘッダーのテスト ログインしている場合 ヘッダーのリンクを確認 Users画面に遷移する
+      Failure/Error: is_expected.to eq('/users')
+
+        expected: "/users"
+             got: "/books"
+
+        (compared using ==)
+
+
+
+      # ./spec/system/header_spec.rb:107:in `block (4 levels) in <top (required)>'
+
+  21) ヘッダーのテスト ログインしている場合 ヘッダーのリンクを確認 Books画面に遷移する
+      Failure/Error: is_expected.to eq('/books')
+
+        expected: "/books"
+             got: "/"
+
+        (compared using ==)
+
+
+
+      # ./spec/system/header_spec.rb:113:in `block (4 levels) in <top (required)>'
+
+  22) ヘッダーのテスト ログインしている場合 ヘッダーのリンクを確認 logoutする
+      Failure/Error: expect(page).to have_content 'Signed out successfully.'
+        expected to find text "Signed out successfully." in "Bookers\nHome Users Books logout\nUser info\nName\nImage\nIntroduction 0iflv7lojlgd9z7572lw"
+
+
+
+      # ./spec/system/header_spec.rb:119:in `block (4 levels) in <top (required)>'
+
+  23) ユーザー権限のテスト ログインしていない場合 投稿関連のURLにアクセス 一覧画面に遷移できない
+      Failure/Error: <td><%= user.name %></td>
+
+      ActionView::Template::Error:
+        undefined method `name' for nil:NilClass
+
+
+
+      # ./app/views/users/_list.html.erb:25:in `_app_views_users__list_html_erb__3560773076295359086_70423780'
+      # ./app/views/books/index.html.erb:2:in `_app_views_books_index_html_erb___4370260815499693884_83511120'
+      # ./spec/system/main_spec.rb:9:in `block (4 levels) in <top (required)>'
+      # ------------------
+      # --- Caused by: ---
+      # NoMethodError:
+      #   undefined method `name' for nil:NilClass
+      #   ./app/views/users/_list.html.erb:25:in `_app_views_users__list_html_erb__3560773076295359086_70423780'
+
+  24) ユーザー権限のテスト ログインしていない場合 投稿関連のURLにアクセス 編集画面に遷移できない
+      Failure/Error: expect(current_path).to eq('/users/sign_in')
+
+        expected: "/users/sign_in"
+             got: "/books/1/edit"
+
+        (compared using ==)
+
+
+
+      # ./spec/system/main_spec.rb:14:in `block (4 levels) in <top (required)>'
+
+  25) ユーザー権限のテスト ログインしていない場合 投稿関連のURLにアクセス 詳細画面に遷移できない
+      Failure/Error: <% if user.id == current_user.id %>
+
+      ActionView::Template::Error:
+        undefined method `id' for nil:NilClass
+
+
+
+      # ./app/views/users/_list.html.erb:36:in `_app_views_users__list_html_erb__3560773076295359086_70423780'
+      # ./app/views/books/show.html.erb:7:in `_app_views_books_show_html_erb___548077681196080142_89978220'
+      # ./spec/system/main_spec.rb:17:in `block (4 levels) in <top (required)>'
+      # ------------------
+      # --- Caused by: ---
+      # NoMethodError:
+      #   undefined method `id' for nil:NilClass
+      #   ./app/views/users/_list.html.erb:36:in `_app_views_users__list_html_erb__3560773076295359086_70423780'
+
+  26) ユーザー権限のテスト ログインしていない場合にユーザー関連のURLにアクセス ユーザー関連のURLにアクセス 一覧画面に遷移できない
+      Failure/Error: <% if @book.errors.any? %>
+
+      ActionView::Template::Error:
+        undefined method `errors' for nil:NilClass
+
+
+
+      # ./app/views/users/_list.html.erb:1:in `_app_views_users__list_html_erb__3560773076295359086_70423780'
+      # ./app/views/users/index.html.erb:2:in `_app_views_users_index_html_erb__2979786567696924804_96086040'
+      # ./spec/system/main_spec.rb:25:in `block (4 levels) in <top (required)>'
+      # ------------------
+      # --- Caused by: ---
+      # NoMethodError:
+      #   undefined method `errors' for nil:NilClass
+      #   ./app/views/users/_list.html.erb:1:in `_app_views_users__list_html_erb__3560773076295359086_70423780'
+
+  27) ユーザー権限のテスト ログインしていない場合にユーザー関連のURLにアクセス ユーザー関連のURLにアクセス 編集画面に遷移できない
+      Failure/Error: expect(current_path).to eq('/users/sign_in')
+
+        expected: "/users/sign_in"
+             got: "/users/1/edit"
+
+        (compared using ==)
+
+
+
+      # ./spec/system/main_spec.rb:30:in `block (4 levels) in <top (required)>'
+
+  28) ユーザー権限のテスト ログインしていない場合にユーザー関連のURLにアクセス ユーザー関連のURLにアクセス 詳細画面に遷移でない
+      Failure/Error: <% if user.id == current_user.id %>
+
+      ActionView::Template::Error:
+        undefined method `id' for nil:NilClass
+
+
+
+      # ./app/views/users/_list.html.erb:36:in `_app_views_users__list_html_erb__3560773076295359086_70423780'
+      # ./app/views/users/show.html.erb:2:in `_app_views_users_show_html_erb___1091668325877814235_87876340'
+      # ./spec/system/main_spec.rb:33:in `block (4 levels) in <top (required)>'
+      # ------------------
+      # --- Caused by: ---
+      # NoMethodError:
+      #   undefined method `id' for nil:NilClass
+      #   ./app/views/users/_list.html.erb:36:in `_app_views_users__list_html_erb__3560773076295359086_70423780'
+
+  29) トップページのテスト ボディ部分のテスト 表示の確認 Log inリンクが表示される
+      Failure/Error: expect(login_link).to match(/log in/i)
+
+        expected "Sign up" to match /log in/i
+        Diff:
+        @@ -1 +1 @@
+        -/log in/i
+        +"Sign up"
+
+
+
+      # ./spec/system/top_spec.rb:12:in `block (4 levels) in <top (required)>'
+
+  30) トップページのテスト ボディ部分のテスト 表示の確認 Sign Upリンクが表示される
+      Failure/Error: signup_link = find_all('a')[5].native.inner_text
+
+      NoMethodError:
+        undefined method `native' for nil:NilClass
+
+
+
+      # ./spec/system/top_spec.rb:16:in `block (4 levels) in <top (required)>'
+
+  31) トップページのテスト ボディ部分のテスト ログインしている場合の挙動を確認 Sign Upリンクをクリックしたらユーザー詳細画面に遷移する
+      Failure/Error: signup_link = find_all('a')[5].native.inner_text
+
+      NoMethodError:
+        undefined method `native' for nil:NilClass
+
+
+
+      # ./spec/system/top_spec.rb:36:in `block (4 levels) in <top (required)>'
+
+  32) トップページのテスト ボディ部分のテスト ログインしていない場合の挙動を確認 Log inリンクをクリックしたらログイン画面へ遷移する
+      Failure/Error: expect(current_path).to eq(new_user_session_path)
+
+        expected: "/users/sign_in"
+             got: "/users/sign_up"
+
+        (compared using ==)
+
+
+
+      # ./spec/system/top_spec.rb:46:in `block (4 levels) in <top (required)>'
+
+  33) トップページのテスト ボディ部分のテスト ログインしていない場合の挙動を確認 Sign Upリンクをクリックしたら新規登録画面に遷移する
+      Failure/Error: signup_link = find_all('a')[5].native.inner_text
+
+      NoMethodError:
+        undefined method `native' for nil:NilClass
+
+
+
+      # ./spec/system/top_spec.rb:49:in `block (4 levels) in <top (required)>'
+
+  34) ユーザー認証のテスト ユーザー新規登録 新規登録画面に遷移 新規登録に成功する
+      Failure/Error: expect(page).to have_content 'successfully'
+        expected to find text "successfully" in "Bookers\nHome Users Books logout\nSign up\n1 error prohibited this user from being saved:\nEmail can't be blank\nName\nEmail\nPassword (6 characters minimum)\nPassword confirmation\nLog in"
+
+
+
+      # ./spec/system/users_spec.rb:16:in `block (4 levels) in <top (required)>'
+
+  35) ユーザー認証のテスト ユーザーログイン ログイン画面に遷移 ログインに成功する
+      Failure/Error: expect(page).to have_content 'successfully'
+        expected to find text "successfully" in "Bookers\nHome Users Books logout\nUser info\nname: u0dnuu4yk0 introduction: thj8ct93zx8j82kkmqyx\nNew book\nTitle\nOpinion\n뼀\nBooks\nTitle Opinion"
+
+
+
+      # ./spec/system/users_spec.rb:41:in `block (4 levels) in <top (required)>'
+
+  36) ユーザーのテスト 編集のテスト 他人の編集画面への遷移 遷移できない
+      Failure/Error: expect(current_path).to eq('/users/' + user.id.to_s)
+
+        expected: "/users/2"
+             got: "/users/1/edit"
+
+        (compared using ==)
+
+
+
+      # ./spec/system/users_spec.rb:96:in `block (4 levels) in <top (required)>'
+
+  37) ユーザーのテスト 編集のテスト 表示の確認 編集に成功する
+      Failure/Error: expect(page).to have_content 'successfully'
+        expected to find text "successfully" in "Bookers\nHome Users Books logout\nUser info\nname: lhj74mtbff introduction: 9zxwnr688m1zlewlkte0\nNew book\nTitle\nOpinion\n뼀\nBooks\nTitle Opinion 2 42p0b qys8y5s4022td34vnpmd"
+
+
+
+      # ./spec/system/users_spec.rb:118:in `block (4 levels) in <top (required)>'
+
+  38) ユーザーのテスト 一覧画面のテスト 表示の確認 Usersと表示される
+      Failure/Error: <% if @book.errors.any? %>
+
+      ActionView::Template::Error:
+        undefined method `errors' for nil:NilClass
+
+
+
+      # ./app/views/users/_list.html.erb:1:in `_app_views_users__list_html_erb__3560773076295359086_70423780'
+      # ./app/views/users/index.html.erb:2:in `_app_views_users_index_html_erb__2979786567696924804_96086040'
+      # ./spec/system/users_spec.rb:133:in `block (3 levels) in <top (required)>'
+      # ------------------
+      # --- Caused by: ---
+      # NoMethodError:
+      #   undefined method `errors' for nil:NilClass
+      #   ./app/views/users/_list.html.erb:1:in `_app_views_users__list_html_erb__3560773076295359086_70423780'
+
+  39) ユーザーのテスト 一覧画面のテスト 表示の確認 自分と他の人の画像が表示される
+      Failure/Error: <% if @book.errors.any? %>
+
+      ActionView::Template::Error:
+        undefined method `errors' for nil:NilClass
+
+
+
+      # ./app/views/users/_list.html.erb:1:in `_app_views_users__list_html_erb__3560773076295359086_70423780'
+      # ./app/views/users/index.html.erb:2:in `_app_views_users_index_html_erb__2979786567696924804_96086040'
+      # ./spec/system/users_spec.rb:133:in `block (3 levels) in <top (required)>'
+      # ------------------
+      # --- Caused by: ---
+      # NoMethodError:
+      #   undefined method `errors' for nil:NilClass
+      #   ./app/views/users/_list.html.erb:1:in `_app_views_users__list_html_erb__3560773076295359086_70423780'
+
+  40) ユーザーのテスト 一覧画面のテスト 表示の確認 自分と他の人の名前が表示される
+      Failure/Error: <% if @book.errors.any? %>
+
+      ActionView::Template::Error:
+        undefined method `errors' for nil:NilClass
+
+
+
+      # ./app/views/users/_list.html.erb:1:in `_app_views_users__list_html_erb__3560773076295359086_70423780'
+      # ./app/views/users/index.html.erb:2:in `_app_views_users_index_html_erb__2979786567696924804_96086040'
+      # ./spec/system/users_spec.rb:133:in `block (3 levels) in <top (required)>'
+      # ------------------
+      # --- Caused by: ---
+      # NoMethodError:
+      #   undefined method `errors' for nil:NilClass
+      #   ./app/views/users/_list.html.erb:1:in `_app_views_users__list_html_erb__3560773076295359086_70423780'
+
+  41) ユーザーのテスト 一覧画面のテスト 表示の確認 showリンクが表示される
+      Failure/Error: <% if @book.errors.any? %>
+
+      ActionView::Template::Error:
+        undefined method `errors' for nil:NilClass
+
+
+
+      # ./app/views/users/_list.html.erb:1:in `_app_views_users__list_html_erb__3560773076295359086_70423780'
+      # ./app/views/users/index.html.erb:2:in `_app_views_users_index_html_erb__2979786567696924804_96086040'
+      # ./spec/system/users_spec.rb:133:in `block (3 levels) in <top (required)>'
+      # ------------------
+      # --- Caused by: ---
+      # NoMethodError:
+      #   undefined method `errors' for nil:NilClass
+      #   ./app/views/users/_list.html.erb:1:in `_app_views_users__list_html_erb__3560773076295359086_70423780'
+
+  42) ユーザーのテスト 詳細画面のテスト 表示の確認 投稿一覧のユーザーの画像のリンク先が正しい
+      Failure/Error: expect(page).to have_link '', href: user_path(user)
+        expected to find link "" with href "/users/2" but there were no matches
+
+
+
+      # ./spec/system/users_spec.rb:161:in `block (4 levels) in <top (required)>'
+
+  43) ユーザーのテスト 詳細画面のテスト 表示の確認 投稿一覧のtitleのリンク先が正しい
+      Failure/Error: expect(page).to have_link book.title, href: book_path(book)
+        expected to find link "x524k" with href "/books/1" but there were no matches
+
+
+
+      # ./spec/system/users_spec.rb:164:in `block (4 levels) in <top (required)>'
+
+Finished in 6.4 seconds (files took 2.71 seconds to load)
+95 examples, 43 failures
+
+Failed examples:
+
+rspec ./spec/system/books_spec.rb:50 # 投稿のテスト 編集のテスト 他人の投稿の編集画面への遷移 遷移できない
+rspec ./spec/system/books_spec.rb:68 # 投稿のテスト 編集のテスト 表示の確認 Showリンクが表示される
+rspec ./spec/system/books_spec.rb:100 # 投稿のテスト 一覧画面のテスト 表示の確認 自分と他人の画像のリンク先が正しい
+rspec ./spec/system/books_spec.rb:121 # 投稿のテスト 詳細画面のテスト 自分・他人共通の投稿詳細画面の表示を確認 ユーザー画像・名前のリンク先が正しい
+rspec ./spec/system/books_spec.rb:135 # 投稿のテスト 詳細画面のテスト 自分の投稿詳細画面の表示を確認 投稿の編集リンクが表示される
+rspec ./spec/system/books_spec.rb:149 # 投稿のテスト 詳細画面のテスト 他人の投稿詳細画面の表示を確認 投稿の削除リンクが表示されない
+rspec ./spec/system/bootstrap_spec.rb:14 # bootstrapのテスト グリッドシステムのテスト ユーザー関連画面 一覧画面
+rspec ./spec/system/header_spec.rb:13 # ヘッダーのテスト ログインしていない場合 ヘッダーの表示を確認 Homeリンクが表示される
+rspec ./spec/system/header_spec.rb:18 # ヘッダーのテスト ログインしていない場合 ヘッダーの表示を確認 Aboutリンクが表示される
+rspec ./spec/system/header_spec.rb:23 # ヘッダーのテスト ログインしていない場合 ヘッダーの表示を確認 Sign upリンクが表示される
+rspec ./spec/system/header_spec.rb:28 # ヘッダーのテスト ログインしていない場合 ヘッダーの表示を確認 loginリンクが表示される
+rspec ./spec/system/header_spec.rb:36 # ヘッダーのテスト ログインしていない場合 ヘッダーのリンクを確認 Home画面に遷移する
+rspec ./spec/system/header_spec.rb:43 # ヘッダーのテスト ログインしていない場合 ヘッダーのリンクを確認 About画面に遷移する
+rspec ./spec/system/header_spec.rb:49 # ヘッダーのテスト ログインしていない場合 ヘッダーのリンクを確認 新規登録画面に遷移する
+rspec ./spec/system/header_spec.rb:77 # ヘッダーのテスト ログインしている場合 ヘッダーの表示を確認 Homeリンクが表示される
+rspec ./spec/system/header_spec.rb:81 # ヘッダーのテスト ログインしている場合 ヘッダーの表示を確認 Usersリンクが表示される
+rspec ./spec/system/header_spec.rb:85 # ヘッダーのテスト ログインしている場合 ヘッダーの表示を確認 Booksリンクが表示される
+rspec ./spec/system/header_spec.rb:89 # ヘッダーのテスト ログインしている場合 ヘッダーの表示を確認 logoutリンクが表示される
+rspec ./spec/system/header_spec.rb:97 # ヘッダーのテスト ログインしている場合 ヘッダーのリンクを確認 Home画面に遷移する
+rspec ./spec/system/header_spec.rb:103 # ヘッダーのテスト ログインしている場合 ヘッダーのリンクを確認 Users画面に遷移する
+rspec ./spec/system/header_spec.rb:109 # ヘッダーのテスト ログインしている場合 ヘッダーのリンクを確認 Books画面に遷移する
+rspec ./spec/system/header_spec.rb:115 # ヘッダーのテスト ログインしている場合 ヘッダーのリンクを確認 logoutする
+rspec ./spec/system/main_spec.rb:8 # ユーザー権限のテスト ログインしていない場合 投稿関連のURLにアクセス 一覧画面に遷移できない
+rspec ./spec/system/main_spec.rb:12 # ユーザー権限のテスト ログインしていない場合 投稿関連のURLにアクセス 編集画面に遷移できない
+rspec ./spec/system/main_spec.rb:16 # ユーザー権限のテスト ログインしていない場合 投稿関連のURLにアクセス 詳細画面に遷移できない
+rspec ./spec/system/main_spec.rb:24 # ユーザー権限のテスト ログインしていない場合にユーザー関連のURLにアクセス ユーザー関連のURLにアクセス 一覧画面に遷移できない
+rspec ./spec/system/main_spec.rb:28 # ユーザー権限のテスト ログインしていない場合にユーザー関連のURLにアクセス ユーザー関連のURLにアクセス 編集画面に遷移できない
+rspec ./spec/system/main_spec.rb:32 # ユーザー権限のテスト ログインしていない場合にユーザー関連のURLにアクセス ユーザー関連のURLにアクセス 詳細画面に遷移でない
+rspec ./spec/system/top_spec.rb:10 # トップページのテスト ボディ部分のテスト 表示の確認 Log inリンクが表示される
+rspec ./spec/system/top_spec.rb:15 # トップページのテスト ボディ部分のテスト 表示の確認 Sign Upリンクが表示される
+rspec ./spec/system/top_spec.rb:35 # トップページのテスト ボディ部分のテスト ログインしている場合の挙動を確認 Sign Upリンクをクリックしたらユーザー詳細画面に遷移する
+rspec ./spec/system/top_spec.rb:43 # トップページのテスト ボディ部分のテスト ログインしていない場合の挙動を確認 Log inリンクをクリックしたらログイン画面へ遷移する
+rspec ./spec/system/top_spec.rb:48 # トップページのテスト ボディ部分のテスト ログインしていない場合の挙動を確認 Sign Upリンクをクリックしたら新規登録画面に遷移する
+rspec ./spec/system/users_spec.rb:9 # ユーザー認証のテスト ユーザー新規登録 新規登録画面に遷移 新規登録に成功する
+rspec ./spec/system/users_spec.rb:36 # ユーザー認証のテスト ユーザーログイン ログイン画面に遷移 ログインに成功する
+rspec ./spec/system/users_spec.rb:94 # ユーザーのテスト 編集のテスト 他人の編集画面への遷移 遷移できない
+rspec ./spec/system/users_spec.rb:116 # ユーザーのテスト 編集のテスト 表示の確認 編集に成功する
+rspec ./spec/system/users_spec.rb:136 # ユーザーのテスト 一覧画面のテスト 表示の確認 Usersと表示される
+rspec ./spec/system/users_spec.rb:139 # ユーザーのテスト 一覧画面のテスト 表示の確認 自分と他の人の画像が表示される
+rspec ./spec/system/users_spec.rb:142 # ユーザーのテスト 一覧画面のテスト 表示の確認 自分と他の人の名前が表示される
+rspec ./spec/system/users_spec.rb:146 # ユーザーのテスト 一覧画面のテスト 表示の確認 showリンクが表示される
+rspec ./spec/system/users_spec.rb:160 # ユーザーのテスト 詳細画面のテスト 表示の確認 投稿一覧のユーザーの画像のリンク先が正しい
+rspec ./spec/system/users_spec.rb:163 # ユーザーのテスト 詳細画面のテスト 表示の確認 投稿一覧のtitleのリンク先が正しい
+

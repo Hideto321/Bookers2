@@ -1,0 +1,25 @@
+
+<h2>User info</h2>
+
+<% if @user.errors.any? %>
+<h3><%= @user.errors.count %>errors prohibited this user from being saved:</h3>
+  <% @user.errors.full_messages.each do |message| %>
+    <ul>
+      <li><%= message %></li>
+    </ul>
+  <% end %>
+<% end %>
+
+<%= form_for(@user) do |f| %>
+  <div class="name">
+    <p><strong>Name </strong><%= f.text_field :name, class:"", id:"inputEmail", placeholder:"坝剝"%></p>
+  </div>
+  <div class="image">
+    <p><strong>Image</strong></p>
+    <%= f.attachment_field :profile_image, class: "user-edit-form" %>
+  </div>
+  <div class="Introduction">
+    <p><strong>Intoroduction</strong><%= f.text_area :introduction %></p>
+  </div>
+  <%= f.submit "Update User", class:"submit" %>
+<% end %>
