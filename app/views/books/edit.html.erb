@@ -1,11 +1,4 @@
-<% if @book.errors.any? %>
- <h3>入力した内容にエラーが<%= @book.errors.count %>件あります</h3>
-    <ul>
-      <% @book.errors.full_messages.each do |message| %>
-        <li><%= message + 'error' %></li>
-      <% end %>
-    </ul>
-<% end %>
+
 
 <h1>Editing Book</h1>
 
